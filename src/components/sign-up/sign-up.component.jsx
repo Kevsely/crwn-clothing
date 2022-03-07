@@ -10,28 +10,31 @@ class SignUp extends React.Component {
     constructor() {
         super()
 
-        this.state() = {
-            name: "", 
+        this.state = {
+            displayName: "", 
             email: "", 
             password: "", 
             confirmedPassword: ""
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
 
-        const { name, email, password, confirmedPassword } = this.state;
+        const { displayName, email, password, confirmedPassword } = this.state;
 
-        if (password !== confirmedPassword) return;
+        if (password !== confirmedPassword) {
+            alert("Passwords don't match");
+            return;
+        }
 
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
-            await createUserProfileDocument(user);
+            await createUserProfileDocument(user, { displayName });
 
             this.setState({
-                name: "", 
+                displayName: "", 
                 email: "", 
                 password: "", 
                 confirmedPassword: ""
@@ -48,43 +51,47 @@ class SignUp extends React.Component {
     }
 
     render() {
-        const { name, email, password, confirmedPassword } = this.state;
+        const { displayName, email, password, confirmedPassword } = this.state;
         return (
             <div className="sign-up">
                 <h2 className="title">I don't have an account</h2>
                 <span>Sign up with an email and password</span>
 
-                <Form onSubmit={handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <FormInput
                         type="text"
-                        name="name"
-                        value= { name }
-                        onChange={ handlechange }
+                        name="displayName"
+                        label="name"
+                        value= { displayName }
+                        onChange={ this.handlechange }
                         required
                     />
                     <FormInput
                         type="text"
                         name="email"
+                        label="email"
                         value= { email }
-                        onChange={ handlechange }
+                        onChange={ this.handlechange }
                         required
                     />
                     <FormInput
                         type="password"
                         name="password"
+                        label="password"
                         value= { password }
-                        onChange={ handlechange }
+                        onChange={ this.handlechange }
                         required
                     />
                     <FormInput
                         type="password"
-                        name="confirmedPassorwd"
+                        name="confirmedPassword"
+                        label="confirm password"
                         value= { confirmedPassword }
-                        onChange={ handlechange }
+                        onChange={ this.handlechange }
                         required
                     />
                     <CustomButton type="submit">SIGN UP</CustomButton>
-                </Form>
+                </form>
 
             </div>
         )
