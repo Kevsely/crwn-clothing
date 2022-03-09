@@ -10,11 +10,11 @@ import './index.css';
 
 ReactDOM.render(
     <Provider store={store}>
-        <React.StrictMode>
-            <BrowserRouter>
+        <BrowserRouter>
+            <React.StrictMode>
                 <App />
-            </BrowserRouter>
-        </React.StrictMode>
+            </React.StrictMode>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );
