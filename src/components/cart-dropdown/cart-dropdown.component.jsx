@@ -10,7 +10,8 @@ import CartItem from "../cart-item/cart-item.component";
 
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 
-const CartDropdown = ({cartItems}) => {
+
+const CartDropdown = ({cartItems, dispatch}) => {
     const navigate = useNavigate();
     console.log(cartItems)
     return (<div className="cart-dropdown">
