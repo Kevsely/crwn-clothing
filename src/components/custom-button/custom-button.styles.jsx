@@ -39,9 +39,9 @@ const invertedButtonStyles = css`
 
 const handleProps = (props) => {
     if (props.isGoogleSignIn)
-        return {GoogleSignedInStyles}
+        return {googleSignedInStyles}
     
-    return props.inverted ? {NormalButtonStyles} : {InvertedButtonStyles}
+    return props.inverted ? {normalButtonStyles} : {invertedButtonStyles}
 }
 
 export const CustomButtonStyled = styled.button`
