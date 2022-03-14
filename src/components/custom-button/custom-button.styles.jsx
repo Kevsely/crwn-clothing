@@ -2,14 +2,12 @@ import styled, { css } from "styled-components";
 
 
 const googleSignedInStyles = css`
-    &.google-sign-in {
     background-color: #4285f4;
     color: white;
+    border: none;
 
-        &:hover {
-            background-color: #357ae8;
-            border: none;
-        }
+    &:hover {
+        background-color: #357ae8;
     }
 `
 
@@ -39,9 +37,9 @@ const invertedButtonStyles = css`
 
 const handleProps = (props) => {
     if (props.isGoogleSignIn)
-        return {googleSignedInStyles}
+        return googleSignedInStyles
     
-    return props.inverted ? {normalButtonStyles} : {invertedButtonStyles}
+    return (props.inverted) ? invertedButtonStyles : normalButtonStyles
 }
 
 export const CustomButtonStyled = styled.button`
