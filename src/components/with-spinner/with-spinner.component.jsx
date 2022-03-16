@@ -1,4 +1,5 @@
 import "./with-spinner.styles";
+import { useParams } from "react-router-dom";
 
 import React from "react";
 import { SpinnerContainer, SpinnerOverlay } from "./with-spinner.styles";

@@ -60,13 +60,13 @@ export const convertSnapshotCollectionToObject = (collectionsSnapshot) => {
             items
         }
     })
-
-    transformedCollections.reduce((accumulator, collection) => {
+    
+    const collectionWithItemNameAsKey = transformedCollections.reduce((accumulator, collection) => {
         accumulator[collection.title.toLowerCase()] = collection;
         return accumulator;
     }, {})
 
-    return transformedCollections;
+    return collectionWithItemNameAsKey;
 }
 
 firebase.initializeApp(config);
