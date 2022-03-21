@@ -18,7 +18,7 @@ export const selectCollection = collectionUrlParam => createSelector(
 )
 
 export const selectIsCollectionFetching = createSelector(
-    [selectShop], 
+    [selectShop],
     shop => shop.isFetching
 )
 
