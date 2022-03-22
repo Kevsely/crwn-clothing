@@ -4,12 +4,10 @@ import { connect } from "react-redux";
 
 import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container";
 import CollectionPageContainer from "../collection-page/collection-page.container";
-import { fetchCollectionsStart } from "../../redux/shop/shop.sagas";
+import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 
 class ShopPage extends React.Component {
 
-    unsuscribeFromSnapshot = null;
-    
     componentDidMount() {
         this.props.fetchCollectionsStart();
     }
