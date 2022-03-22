@@ -68,7 +68,7 @@ class SignIn extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
     googleSignInStart: () => dispatch(googleSignInStart()),
-    emailSignInStart: () => dispatch(emailSignInStart())
+    emailSignInStart: (emailAndPassword) => dispatch(emailSignInStart(emailAndPassword))
 })
 
 export default connect(null, mapDispatchToProps)(SignIn);
